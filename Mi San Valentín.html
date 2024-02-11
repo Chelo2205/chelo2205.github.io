@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>San Valentín</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f8f8f8;
+    }
+
+    #heart-container {
+      display: flex;
+      align-items: center;
+    }
+
+    #heart {
+      color: red;
+      font-size: 100px;
+      animation: heartbeat 1s infinite;
+    }
+
+    #letter {
+      font-size: 80px;
+      margin-left: 10px;
+    }
+
+    #question {
+      margin-top: 20px;
+      font-size: 20px;
+    }
+
+    #buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+    }
+
+    #yes {
+      background-color: green;
+    }
+
+    #no {
+      background-color: red;
+    }
+
+    #result {
+      margin-top: 20px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .result-text {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    #final-message {
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    #sad-emoji {
+      font-size: 48px; 
+    }
+
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div id="heart-container">
+    <div id="heart">❤️</div>
+    <div id="letter">V</div>
+  </div>
+  <div id="question">¿Quieres ser mi San Valentín?</div>
+  <div id="buttons">
+    <button id="yes" class="button" onclick="showResult(true)">Sí</button>
+    <button id="no" class="button" onclick="showResult(false)">No</button>
+  </div>
+  <div id="result">
+    <div class="result-text">Te amo</div>
+    <div class="result-text">Wo ai ni</div>
+    <div class="result-text">I love you</div>
+    <div class="result-text" id="final-message">Seamos ying y yang por siempre☯️❤️</div>
+  </div>
+
+  <script>
+    function showResult(isYes) {
+      const heartContainer = document.getElementById('heart-container');
+      const question = document.getElementById('question');
+      const buttons = document.getElementById('buttons');
+      const result = document.getElementById('result');
+      const finalMessage = document.getElementById('final-message');
+
+      if (isYes) {
+        heartContainer.style.display = 'none';
+        question.style.display = 'none';
+        buttons.style.display = 'none';
+        result.style.display = 'flex';
+
+        // Simulando la aparición de las frases
+        setTimeout(() => {
+          finalMessage.style.display = 'block';
+        }, 1000);
+      } else {
+        heartContainer.style.display = 'none';
+        question.style.display = 'none';
+        buttons.style.display = 'none';
+        result.innerHTML = '<div class="result-text">😢</div>';
+        result.innerHTML += '<div class="result-text">Tu me rompiste el corazon 😔🫵🏿</div>';
+        result.style.display = 'flex';
+      }
+    }
+  </script>
+</body>
+</html>
+
